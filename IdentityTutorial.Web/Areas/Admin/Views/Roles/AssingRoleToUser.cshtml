@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "AssingRoleToUser";
+}
+@model List<AdminModel.AssignRoleViewModel>
+<h1>Assing Role To User</h1>
+
+<a class="btn btn-outline-success" asp-area="Admin" asp-controller="Home" asp-action="UserList">  <<< Back to User List</a>
+
+<div class="row">
+    <div class="alert alert-danger" asp-validation-summary="ModelOnly"></div>
+
+    <div class="col-md-8 mx-auto">
+
+        <form asp-route-id="@ViewBag.id" asp-area="Admin" asp-action="AssingRoleToUser" asp-controller="Roles" method="post">
+
+
+
+            <table class="table table-borderless">
+
+                <thead class="border-bottom">
+                    <tr>
+                        <th>Name</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <td>   <label class="form-label">@Model[i].RoleName</label></td>
+                            <td>
+                                <input type="checkbox" class="form-check-input" asp-for="@Model[i].Exist" />
+                                <input type="hidden" asp-for="@Model[i].RoleName" />
+                                <input type="hidden" asp-for="@Model[i].Id" />
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+
+            <button type="submit" class="btn btn-primary ">Assign Role</button>
+
+
+        </form>
+    </div>
+
+
+</div>

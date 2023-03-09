@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewData["Title"] = "RoleUpdate";
+}
+@model AdminModel.RoleUpdateViewModel
+<h1>Role Update</h1>
+
+
+
+
+<div class="row">
+
+    <div class="alert alert-danger" asp-validation-summary="ModelOnly"></div>
+
+    <div class="col-md-8 mx-auto">
+
+      
+
+        <a class="btn btn-outline-primary mt-4" asp-action="Index" asp-controller="Roles" asp-area="Admin"> Role List</a>
+
+        <form asp-area="Admin" asp-action="RoleUpdate" asp-controller="Roles" method="post">
+
+            <input  type="hidden" asp-for="Id"/>
+            <div class="row mb-3">
+                <label asp-for="RoleName" class="form-label mb-2"></label>
+                <input class="form-control" asp-for="RoleName">
+                <span asp-validation-for="RoleName" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary ">Add Update</button>
+
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial">
+    }

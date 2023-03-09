@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+   
+    <div class="row">
+
+        @if (TempData["MessageSignUp"] != null)
+        {
+            <div class="aler alert-danger col-md-8 mx-auto mb-3"> @TempData["MessageSignUp"] </div>
+        }
+        @if (TempData["linkError"] != null)
+        {
+            <div class="aler alert-danger col-md-8 mx-auto mb-3"> @TempData["linkError"] </div>
+        }
+    </div>
+   
+</div>

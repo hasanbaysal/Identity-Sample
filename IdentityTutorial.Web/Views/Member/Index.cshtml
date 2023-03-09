@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+@model UserViewModel
+<h1>User İnformations</h1>
+
+
+<div class="row">
+    <div class="col-md-4 mx-auto mb-3">
+        <profile-photo picture-name=@Model.Picture class="rounded-circle" style="width:250px;"></profile-photo>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>User Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                </tr>
+            </thead>
+            <tbody>
+
+
+                <tr>
+                    <td>@Model.UserName</td>
+                    <td>@Model.Email</td>
+                    <td>@(Model.PhoneNumer!=null ? @Model.PhoneNumer : "-----")</td>
+                </tr>
+
+
+            </tbody>
+        </table>
+    </div>
+
+</div>

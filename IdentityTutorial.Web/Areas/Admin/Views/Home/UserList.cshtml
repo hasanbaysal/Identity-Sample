@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "UserList";
+}
+@model List<AdminModel.UserViewModel>
+<h1>UserList</h1>
+
+<div class="row">
+
+
+    <div class="col-10 mx-auto">
+
+        <table class="table table-bordered table-hover">
+
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Roles</th>
+
+                    <th> </th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>@item.UserId</td>
+                        <td>@item.UserName</td>
+                        <td>@item.Email</td>
+                        <td>
+                            
+                            @foreach (var role in item.RoleNames!)
+                            {
+                                <span class="badge bg-success"> @role.ToLower()</span>
+                            }
+
+                        </td>
+                        <td><a asp-controller="Roles" asp-action="AssingRoleToUser" asp-route-id="@item.UserId" >Role Assign</a></td>
+                    </tr>
+                }
+
+            </tbody>
+
+
+        </table>
+
+
+    </div>
+
+
+
+</div>
+
